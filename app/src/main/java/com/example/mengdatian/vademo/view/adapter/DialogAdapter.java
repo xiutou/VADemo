@@ -75,9 +75,10 @@ public class DialogAdapter extends RecyclerView.Adapter<BaseHolder> {
            weatherHolder.getTextView().setText(dialoglist.get(i).getContent());
        }
        if(baseHolder instanceof MusicHolder){
+           Log.d("DialogAdapter", "音乐");
            MusicHolder musicHolder = (MusicHolder) baseHolder;
            ArrayList<JavaBean>arrayList = new ArrayList<>();
-           for(int j =0;j<arrayList.size();j++){
+           for(int j =0;j<4;j++){
                arrayList.add(new JavaBean("",0,""));
            }
            musicHolder.getViewPager().setAdapter(new MusicPageAdapter(mContext,arrayList));

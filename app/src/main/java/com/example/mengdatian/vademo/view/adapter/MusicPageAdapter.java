@@ -21,7 +21,7 @@ public class MusicPageAdapter extends PagerAdapter {
 
     public MusicPageAdapter(Context context , ArrayList<JavaBean> list){
         mContext = context;
-        list = list;
+        this.list = list;
     }
 
     @Override
@@ -32,7 +32,7 @@ public class MusicPageAdapter extends PagerAdapter {
     @NonNull
     @Override
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
-        View view = View.inflate(mContext, R.layout.music_layout,null);
+        View view = View.inflate(mContext, R.layout.music_page_layout,null);
         container.addView(view);
         return view;
     }
@@ -40,5 +40,10 @@ public class MusicPageAdapter extends PagerAdapter {
     @Override
     public boolean isViewFromObject(@NonNull View view, @NonNull Object o) {
         return view == o;
+    }
+
+    @Override
+    public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
+        container.removeView((View)object);
     }
 }
